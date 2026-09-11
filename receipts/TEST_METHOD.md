@@ -41,6 +41,12 @@ contribution is measured, not assumed. Recorded as `receipts/control-NN.md` with
 reply in `control-NN.report.md`, and compared row by row against the cold run on the same
 fixture, each difference pointing at the line of the extract that settles it.
 
+## Cross-model
+
+One fixture repeated on a different vendor's model with the same files and prompt, recorded
+as `receipts/cross-model-NN.md`, compared row by row against the Claude cold run on the same
+fixture. Same verdicts on two models is evidence the folder carries the result.
+
 ## Ordering
 
 `fixtures/*/EXPECTED.md` were committed with the folder before any run. Cold runs 01 and 02

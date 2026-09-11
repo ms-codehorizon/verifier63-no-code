@@ -136,7 +136,7 @@ Project: `composition-obvious` (FAIL, matched; one deviation found, borrowed ide
 `Observed` field, fixed in `rules.md`), `observe-not-require` (PASS, no deviations),
 `composition-refactored` (FAIL behind helpers and a returned object, no deviations, all quoted
 provisions checked verbatim) and `composition-config` (FAIL behind a policy object, matched;
-one imprecision the expected answer and the run share, recorded rather than edited away). Then a
+one imprecision the expected answer and the run share, recorded rather than edited away). The last fixture was then repeated on ChatGPT with the same files and prompt: same 85 verdicts, same verbatim citations (`receipts/cross-model-01.md`). Then a
 control: the same `observe-not-require` files and prompt with nothing from this folder loaded.
 The bare model got the composition verdict and the blocklist gap right too, then gave the
 AAL2 timeouts from the previous revision, invented a length floor the text does not contain,
@@ -159,7 +159,7 @@ The unedited replies are in the `*.report.md` files.
 | `reference/OUT-OF-SCOPE.md` | Every section not audited, by number, with the reason; plus in-scope sentences that are deliberately not controls |
 | `reference/PROVENANCE.md` | Publication identity, DOI, retrieval date, SHA-256 of the PDF, the HTML and the extract |
 | `reference/NIST.SP.800-63B-4.pdf`, `sp800-63b-4.html` | The publication of record and the HTML edition it was extracted from |
-| `receipts/` | Frozen test method, the four cold runs it names (three FAIL shapes of one composition rule, and the logged-only shape that must PASS) in fresh claude.ai Projects with the unedited replies, the expected values written beforehand and every deviation found with its fix, plus one control: the same fixture and prompt with no folder loaded, compared row by row |
+| `receipts/` | Frozen test method, the four cold runs it names (three FAIL shapes of one composition rule, and the logged-only shape that must PASS) in fresh claude.ai Projects with the unedited replies, the expected values written beforehand and every deviation found with its fix, plus one cross-model run (ChatGPT, same fixture, same verdicts) and one control: the same fixture and prompt with no folder loaded, compared row by row |
 | `fixtures/*/` | Seven small codebases to audit, each with `EXPECTED.md` |
 | `examples/node-express-boilerplate/` | The eleven files from the real repo that findings in `examples.md` cite, pinned at commit `179ae84` (MIT, license included; `SOURCE.md` says how to get the rest) |
 
