@@ -49,4 +49,4 @@ deviation.
 ## Follow-up
 
 `observe-not-require` was run next with the fixed `rules.md`: see `cold-run-02.md`.
-`composition-refactored` and `composition-config` are not yet recorded.
+`composition-refactored` was run in a rebuilt Project: see `cold-run-03.md`. `composition-config` is not yet recorded.

@@ -17,6 +17,7 @@ SHOULD), and the provision quoted verbatim from a pinned, hashed copy of the sta
 
 It is not a security opinion. It is a conformance audit against a rulebook you can open.
 
+
 ```
 REQ:        PWD-COMP-01
 Status:     FAIL
@@ -129,6 +130,20 @@ Then try to break it: add a composition rule anywhere in `fixtures/compliant/src
 things, split it into helpers, drive it from a policy object, and audit it again. Or keep the
 regex and only log its result, and watch it pass.
 
+**4. What has already been run, and what went wrong.** `receipts/` is the record. The method
+was frozen first (`TEST_METHOD.md`), then three cold runs in fresh claude.ai Projects:
+`composition-obvious` (FAIL, matched; one deviation found, borrowed identifiers in an
+`Observed` field, fixed in `rules.md`), `observe-not-require` (PASS, no deviations) and
+`composition-refactored` (FAIL behind helpers and a returned object, no deviations, all 51
+quoted provisions checked verbatim). Then a
+control: the same `observe-not-require` files and prompt with nothing from this folder loaded.
+The bare model got the composition verdict and the blocklist gap right too, then gave the
+AAL2 timeouts from the previous revision, invented a length floor the text does not contain,
+accepted argon2 on its own authority, cited no section for any of it, and missed a SHALL-level
+failure the auditor found. `receipts/control-01.md` puts the two side by side with the extract
+line for each difference, and says what the control does not prove.
+The unedited replies are in the `*.report.md` files.
+
 ## What is in the folder
 
 | Path | What it is |
@@ -143,7 +158,7 @@ regex and only log its result, and watch it pass.
 | `reference/OUT-OF-SCOPE.md` | Every section not audited, by number, with the reason; plus in-scope sentences that are deliberately not controls |
 | `reference/PROVENANCE.md` | Publication identity, DOI, retrieval date, SHA-256 of the PDF, the HTML and the extract |
 | `reference/NIST.SP.800-63B-4.pdf`, `sp800-63b-4.html` | The publication of record and the HTML edition it was extracted from |
-| `receipts/` | Frozen test method and two recorded cold runs in a fresh claude.ai project: `composition-obvious` (FAIL) and `observe-not-require` (PASS), each with the unedited reply, the expected values written beforehand, and every deviation found with the fix it caused |
+| `receipts/` | Frozen test method, three recorded cold runs in fresh claude.ai Projects (`composition-obvious` FAIL, `observe-not-require` PASS, `composition-refactored` FAIL) with the unedited replies, the expected values written beforehand and every deviation found with its fix, and one control: the same fixture and prompt with no folder loaded, compared row by row against the cold run |
 | `fixtures/*/` | Seven small codebases to audit, each with `EXPECTED.md` |
 | `examples/node-express-boilerplate/` | The eleven files from the real repo that findings in `examples.md` cite, pinned at commit `179ae84` (MIT, license included; `SOURCE.md` says how to get the rest) |
 
