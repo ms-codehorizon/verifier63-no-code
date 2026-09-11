@@ -37,6 +37,14 @@ failures, including a letter+digit composition rule enforced in two places, bcry
 no blocklist, no per-account lockout, and a refresh-token loop that never asks the user to
 authenticate again.
 
+## See it run
+
+![Screen recording: a claude.ai Project is created, the eight folder files are added as knowledge, the observe-not-require fixture is attached, and the 85-row audit comes back ending in the summary block](assets/verifier63-demo.gif)
+
+Screen recording, 36 seconds, cut from a 3 minute 40 second session on 2026-09-11: create the
+Project, add the eight files, attach `fixtures/observe-not-require/`, ask, read the reply. The
+model shown is Haiku 4.5 on a free plan; the summary matches `receipts/cold-run-02.md`.
+
 ## Use it (no install)
 
 First write `verifier63.yaml` for the code you want audited. Required; the auditor never
@@ -160,6 +168,7 @@ The unedited replies are in the `*.report.md` files.
 | `reference/PROVENANCE.md` | Publication identity, DOI, retrieval date, SHA-256 of the PDF, the HTML and the extract |
 | `reference/NIST.SP.800-63B-4.pdf`, `sp800-63b-4.html` | The publication of record and the HTML edition it was extracted from |
 | `receipts/` | Frozen test method, the four cold runs it names (three FAIL shapes of one composition rule, and the logged-only shape that must PASS) in fresh claude.ai Projects with the unedited replies, the expected values written beforehand and every deviation found with its fix, plus one cross-model run (ChatGPT, same fixture, same verdicts) and one control: the same fixture and prompt with no folder loaded, compared row by row |
+| `assets/verifier63-demo.gif` | Screen recording of a full run in a fresh claude.ai Project, cut to 36 seconds |
 | `fixtures/*/` | Seven small codebases to audit, each with `EXPECTED.md` |
 | `examples/node-express-boilerplate/` | The eleven files from the real repo that findings in `examples.md` cite, pinned at commit `179ae84` (MIT, license included; `SOURCE.md` says how to get the rest) |
 
