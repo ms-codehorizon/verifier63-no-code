@@ -33,6 +33,21 @@ How Verifier63 is tested, written down so a result cannot be shaped after the fa
 Three shapes of one violation fail and the same syntax with a different meaning passes.
 If any run misses, the auditor is reading phrasing, not the provision, and that is reported here.
 
+## Control
+
+One run per tested fixture with nothing loaded: a plain chat, no Project, the same files and
+the same prompt. It answers "what does the model do without this folder", so the folder's
+contribution is measured, not assumed. Recorded as `receipts/control-NN.md` with the unedited
+reply in `control-NN.report.md`, and compared row by row against the cold run on the same
+fixture, each difference pointing at the line of the extract that settles it.
+
+## Ordering
+
+`fixtures/*/EXPECTED.md` were committed with the folder before any run. Cold runs 01 and 02
+landed in that same first commit, so git cannot show their order; the receipts say so. Every
+run from `cold-run-03` on is committed in its own commit after the run, so `git log` shows the
+expected answer preceding the reply.
+
 ## Receipts
 
 Each run is recorded as `receipts/cold-run-NN.md` (method instance, expected, actual,
