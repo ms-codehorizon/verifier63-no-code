@@ -131,11 +131,12 @@ things, split it into helpers, drive it from a policy object, and audit it again
 regex and only log its result, and watch it pass.
 
 **4. What has already been run, and what went wrong.** `receipts/` is the record. The method
-was frozen first (`TEST_METHOD.md`), then three cold runs in fresh claude.ai Projects:
-`composition-obvious` (FAIL, matched; one deviation found, borrowed identifiers in an
-`Observed` field, fixed in `rules.md`), `observe-not-require` (PASS, no deviations) and
-`composition-refactored` (FAIL behind helpers and a returned object, no deviations, all 51
-quoted provisions checked verbatim). Then a
+was frozen first (`TEST_METHOD.md`), then the four runs it names, each in a fresh claude.ai
+Project: `composition-obvious` (FAIL, matched; one deviation found, borrowed identifiers in an
+`Observed` field, fixed in `rules.md`), `observe-not-require` (PASS, no deviations),
+`composition-refactored` (FAIL behind helpers and a returned object, no deviations, all quoted
+provisions checked verbatim) and `composition-config` (FAIL behind a policy object, matched;
+one imprecision the expected answer and the run share, recorded rather than edited away). Then a
 control: the same `observe-not-require` files and prompt with nothing from this folder loaded.
 The bare model got the composition verdict and the blocklist gap right too, then gave the
 AAL2 timeouts from the previous revision, invented a length floor the text does not contain,
@@ -158,7 +159,7 @@ The unedited replies are in the `*.report.md` files.
 | `reference/OUT-OF-SCOPE.md` | Every section not audited, by number, with the reason; plus in-scope sentences that are deliberately not controls |
 | `reference/PROVENANCE.md` | Publication identity, DOI, retrieval date, SHA-256 of the PDF, the HTML and the extract |
 | `reference/NIST.SP.800-63B-4.pdf`, `sp800-63b-4.html` | The publication of record and the HTML edition it was extracted from |
-| `receipts/` | Frozen test method, three recorded cold runs in fresh claude.ai Projects (`composition-obvious` FAIL, `observe-not-require` PASS, `composition-refactored` FAIL) with the unedited replies, the expected values written beforehand and every deviation found with its fix, and one control: the same fixture and prompt with no folder loaded, compared row by row against the cold run |
+| `receipts/` | Frozen test method, the four cold runs it names (three FAIL shapes of one composition rule, and the logged-only shape that must PASS) in fresh claude.ai Projects with the unedited replies, the expected values written beforehand and every deviation found with its fix, plus one control: the same fixture and prompt with no folder loaded, compared row by row |
 | `fixtures/*/` | Seven small codebases to audit, each with `EXPECTED.md` |
 | `examples/node-express-boilerplate/` | The eleven files from the real repo that findings in `examples.md` cite, pinned at commit `179ae84` (MIT, license included; `SOURCE.md` says how to get the rest) |
 

@@ -39,8 +39,7 @@ Run 01 failed the obvious shape (`/[A-Z]/.test(password)` inline, three sites). 
 the same rule with no identifier that mentions uppercase, digits, composition or complexity:
 two one-line helpers, a `value` parameter, a problems array, a returned object. The procedure
 in `procedures/deterministic-checks.md` resolves what a value is, not what it is called, and the
-model followed it. `composition-config` (the policy-object shape) is the remaining shape not yet
-recorded.
+model followed it. `composition-config` (the policy-object shape) is recorded in `cold-run-04.md`.
 
 ## Ordering
 
